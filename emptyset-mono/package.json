@@ -7,7 +7,6 @@
     "packages/*"
   ],
   "scripts": {
-    "prepare": "husky install",
     "postinstall": "patch-package",
     "deploy:fork:optimismGoerli": "concurrently \"yarn workspace @emptyset/reserve run node:fork:optimismGoerli --no-deploy > /dev/null\" \"./scripts/deploy_optimism_goerli_fork.sh\"",
     "deploy:optimismGoerli": "./scripts/deploy_optimism_goerli.sh",
