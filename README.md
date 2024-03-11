@@ -7,6 +7,96 @@
 
 # Q&A
 
+### Q: On what chains are the smart contracts going to be deployed?
+Currently deployed to Arbitrum and Base. Other EVM L2s are eligible but only Optimism Chains and Arbitrum are currently supported for gas pricing
+___
+
+### Q: Which ERC20 tokens do you expect will interact with the smart contracts? 
+DSU and USDC (Both USDC/USDC.e on Arbitrum, native USDC on other chains)
+___
+
+### Q: Which ERC721 tokens do you expect will interact with the smart contracts? 
+None
+___
+
+### Q: Do you plan to support ERC1155?
+No
+___
+
+### Q: Which ERC777 tokens do you expect will interact with the smart contracts? 
+None
+___
+
+### Q: Are there any FEE-ON-TRANSFER tokens interacting with the smart contracts?
+
+No
+___
+
+### Q: Are there any REBASING tokens interacting with the smart contracts?
+
+No
+___
+
+### Q: Are the admins of the protocols your contracts integrate with (if any) TRUSTED or RESTRICTED?
+DSU - TRUSTED
+Pyth (or other oracle providers) - TRUSTED
+___
+
+### Q: Is the admin/owner of the protocol/contracts TRUSTED or RESTRICTED?
+Protocol admin: TRUSTED
+
+___
+
+### Q: Are there any additional protocol roles? If yes, please explain in detail:
+Markets have Coordinators which can update parameters for that specific market - these coordinators have a large amount of flexibility within their own market but should not be able to adversely affect other markets or the overall protocol.
+___
+
+### Q: Is the code/contract expected to comply with any EIPs? Are there specific assumptions around adhering to those EIPs that Watsons should be aware of?
+No
+
+
+___
+
+### Q: Please list any known issues/acceptable risks that should not result in a valid finding.
+As stated above - market coordinators can do many things within their markets which could adversely affect user funds within those markets. However, they should not be able to affect other markets
+
+Flywheel being down due to external downtime - sequencer downtime does not have special case handling. Perennial also does not provide grace periods for users to cure their positions when these systems do come back up
+___
+
+### Q: Please provide links to previous audits (if any).
+https://github.com/equilibria-xyz/perennial-v2/tree/main/audits
+
+
+___
+
+### Q: Are there any off-chain mechanisms or off-chain procedures for the protocol (keeper bots, input validation expectations, etc)?
+Yes - there are keepers for oracle updates + settlements, liquidations, and order types
+
+
+___
+
+### Q: In case of external protocol integrations, are the risks of external contracts pausing or executing an emergency withdrawal acceptable? If not, Watsons will submit issues related to these situations that can harm your protocol's functionality.
+We want to be aware of issues that might arise from oracle or DSU integrations
+
+
+___
+
+### Q: Do you expect to use any of the following tokens with non-standard behaviour with the smart contracts?
+USDC
+
+
+___
+
+### Q: Add links to relevant protocol resources
+Migration Guide: https://github.com/equilibria-xyz/perennial-v2/blob/22ba19c323a13c9f02f95db6747d137a3bf1277a/runbooks/MIGRATION_v2.2.md
+
+V2 Docs: https://docs.perennial.finance/
+
+V2 Mechanism 1-pager: https://docs.google.com/document/d/1f-V_byFYkJdJAHMXxN2NiiDqysYhoqKzZXteee8BuIQ/edit
+___
+
+
+
 # Audit scope
 
 
